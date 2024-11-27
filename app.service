@@ -1,0 +1,16 @@
+[Unit]
+Description=My Express App
+After=network.target
+
+[Service]
+EnvironmentFile=/home/_app/env.ini
+ExecStart=/usr/bin/node /home/_app/index.js
+Restart=always
+User=_app
+Group=_app
+Environment=PATH=/usr/bin:/usr/local/bin
+Environment=NODE_ENV=production
+WorkingDirectory=/home/_app
+
+[Install]
+WantedBy=multi-user.target
